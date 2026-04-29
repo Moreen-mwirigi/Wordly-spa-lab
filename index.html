@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Wordly Dictionary</title>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>Wordly</h1>
+                <p> Interactive Dictionary </p>
+                <button id="theme-toggle" class="icon-btn"></button>
+                </header>
+                <main>
+                    <form id="search-form">
+                        <input type="text" id="input-word" placeholder="Search for a word..." autocomplete="off">
+                        <button type="submit"> Search </button>
+                    </form>
+            <div id="error-message" class="hidden"></div>
+            <div id="loader" class="hidden"> Searching...</div>
+
+            <section id="result-section" class="hidden">
+                <div class="word-header">
+                    <h2 id="word"></h2>
+                    <span id="phonetic"></span>
+                    <button id="save-btn"> Save </button>
+                </div>
+                <audio id="audio" controls class="hidden"></audio>
+                <div id="meanings"></div>
+                <div id="source"></div>
+            </section>
+            <section id="favorites-section">
+                <h3>Saved Words</h3>
+                <ul id="favorites-list"></ul>
+            </section>
+                </main>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>
