@@ -4,36 +4,56 @@
         <meta charset="UTF-8">
         <title>Wordly Dictionary</title>
         <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     </head>
     <body>
         <div class="container">
-            <header>
+            <header class="top-bar">
+                <div class="app-bar-content">
+                    <span class="material-icons-round logo-icon">menu_book</span>
+                    <div class="title-g">
                 <h1>Wordly</h1>
                 <p> Interactive Dictionary </p>
-                <button id="theme-toggle" class="icon-btn"></button>
+                </div>
+                <button id="theme-toggle" class="icon-btn">
+                 <span class="material-icons-round">dark_mode</span>
+                </button>
+                </div>
                 </header>
                 <main>
+                    <div class="search-card"></div>
                     <form id="search-form">
                         <input type="text" id="input-word" placeholder="Search for a word..." autocomplete="off">
                         <button type="submit"> Search </button>
                     </form>
-            <div id="error-message" class="hidden"></div>
+            <div id="error-message" class="hidden">
+                <div class="material-icons-round">error</div>
+                <span id="error-text"></span>
+            </div>
             <div id="loader" class="hidden"> Searching...</div>
 
             <section id="result-section" class="hidden">
                 <div class="word-header">
                     <h2 id="word"></h2>
                     <span id="phonetic"></span>
-                    <button id="save-btn"> Save </button>
+                    <button id="save-btn"> 
+                        <span class="material-icons-round">bookmark_border</span>
+                        Save 
+                    </button>
                 </div>
                 <audio id="audio" controls class="hidden"></audio>
                 <div id="meanings"></div>
                 <div id="source"></div>
             </section>
-            <section id="favorites-section">
+            <section id="favorites-section" class="card">
+                <div class="card-title">
                 <h3>Saved Words</h3>
-                <ul id="favorites-list"></ul>
+                 </div>
+                 <div id="favorites-empty" class="empty">
+                    <p> No saved words yet</p>
+                 </div>
+                <div id="favorites-list" class="name-group"></div>
             </section>
                 </main>
         </div>

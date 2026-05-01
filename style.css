@@ -1,0 +1,46 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.3s, color 0.3s;
+    line-height: 1.5;
+}
+.container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+.icon-btn {
+    margin-left: auto;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background: transparent;
+    color:beige;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+.icon-btn:hover {
+    background: rgb(3, 3, 3);
+}
+.hidden {
+    display: none;
+}
+.search-card {
+    display: flex;
+    gap: 0.75rem;
+}
+#search-form{
+    border: 2px solid black;
+    border-radius: 10px;
+    font-size: 1rem;
+    padding: 0.8rem 1.4rem;
+    flex: 1;
+    color: beige;
+}
+.input-word{
+    box-shadow: 0 0 0 3px rgb(3, 3, 3);
+}
