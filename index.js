@@ -79,7 +79,7 @@ function displayResult(data) {
 
     document.getElementById('word').textContent = data.word
     document.getElementById('phonetic').textContent = data.phonetic || data.phonetics[0]?.text || ''
-
+// Audio
     const audioUrl = data.phonetics.find(p => p.audio)?.audio
     const audioEl = document.getElementById('audio')
     if (audioUrl){
@@ -88,7 +88,7 @@ function displayResult(data) {
     } else {
         audioEl.classList.add('hidden')
     }
-
+// Save Button
 const saveBtn = document.getElementById('save-btn')
 if(saveBtn){
     updateSaveBtn(saveBtn, data.word)
