@@ -50,7 +50,26 @@ console.log('audio element:', document.getElementById('audio'))
 console.log('save-btn element:', document.getElementById('save-btn'))
 console.log('meanings element:', document.getElementById('meanings'))
 
+function updateSaveBtn(btn, word){
+    if(!btn) {
+        console.log('Save button not found')
+     return
+    }
+    const icon = btn.querySelector('.material-icons-round')
+    if(!icon) {
+        console.log('Icon span missing')
+        return
+    } 
+    if (favorites.includes(word)){
+        icon.textContent = 'bookmark'
+        btn.classList.add('active') 
+    } else{
+        icon.textContent = 'bookmark_border'
+        btn.classList.remove('active')
+    }
 
+}
+// Display Results
 function displayResult(data) {
     document.getElementById('loader')?.classList.add('hidden')
     document.getElementById('error-message')?.classList.add('hidden')
@@ -75,30 +94,8 @@ if(saveBtn){
     updateSaveBtn(saveBtn, data.word)
     saveBtn.onclick = () => toggleFavorite(data.word)
 }
-function updateSaveBtn(btn, word){
-    if(!btn) {
-        console.log('Save button not found')
-     return
-    }
-    const icon = btn.querySelector('.material-icons-round')
-    if(!icon) {
-        console.log('Icon span missing')
-        return
-    } 
-    if (favorites.includes(word)){
-        icon.textContent = 'bookmark'
-        btn.classList.add('active') 
-    } else{
-        icon.textContent = 'bookmark_border'
-        btn.classList.remove('active')
-    }
 
-}
-//if (saveBtn){
-    //updateSaveBtn(btn, data.word)
-  //  saveButton.onclick = () => toggleFavorite(data.word)
-//}
-
+console.log('Display RESULT RAN')
 const meaningsDiv = document.getElementById('meanings')
 console.log('2. meaningsDiv found:', meaningsDiv)
 
@@ -110,6 +107,7 @@ if (!meaningsDiv){
 
 meaningsDiv.innerHTML = ''
 console.log('3. looping through meaning:', data.meanings)
+
 
 data.meanings?.forEach((meaning, index) => {
     console.log(`4. processing meaning ${index}:`, meaning)
@@ -214,7 +212,6 @@ data.meanings?.forEach((meaning, index) => {
         function showLoader(){loader.classList.remove('hidden')}
         function hideLoader(){
             document.getElementById('loader').classList.add('hidden')
-            //loader.classList.add('hidden')
             }
         function showError(message){
             errorText.textContent = message
@@ -222,11 +219,10 @@ data.meanings?.forEach((meaning, index) => {
         }
         function hideError(){
             document.getElementById('error-message').classList.add('hidden')
-            //errorMessage.classList.add('hidden')
             }
         function showResults(){
             document.getElementById('result-section').classList.remove('hidden')
-            //resultSection.classList.remove('hidden')
+       
             }
         function hideResults(){resultSection.classList.add('hidden')}
     

@@ -1,46 +1,225 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
-    background: var(--bg);
-    color: var(--text);
+    background: black;
+    color: black;
     transition: background 0.3s, color 0.3s;
     line-height: 1.5;
 }
+:root {
+    --bg: #f5f7fb;
+    --card: #ffffff;
+    --text: #1e293b;
+    --muted: #64748b;
+    --primary: #6366f1;
+    --border: #e2e8f0;
+}
+
+[data-theme="dark"] {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --primary: #818cf8;
+    --border: #334155;
+}
+
 .container {
     max-width: 720px;
     margin: 0 auto;
     padding: 2rem 1rem;
 }
-.icon-btn {
-    margin-left: auto;
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-    background: transparent;
-    color:beige;
-    cursor: pointer;
+
+#loader{
+    text-align: center;
+    padding: 40px;
+    color: khaki;
+    
+}
+.input-word{
+    box-shadow: 0 0 0 3px rgb(3, 3, 3);
+}
+.top-bar {
+    margin-bottom: 20px;
+}
+
+.app-bar-content {
     display: flex;
     align-items: center;
-    justify-content: center;
-    transition: background 0.2s;
+    justify-content: space-between;
 }
-.icon-btn:hover {
-    background: rgb(3, 3, 3);
+
+.logo-icon {
+    font-size: 32px;
+    color: var(--primary);
+}
+.icon-btn {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.search-card {
+    background: var(--card);
+    padding: 15px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    margin-bottom: 20px;
+}
+
+#search-form {
+    display: flex;
+    gap: 10px;
+}
+
+#input-word {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    outline: none;
+    background: transparent;
+    color: var(--text);
+}
+
+#search-form button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    cursor: pointer;
 }
 .hidden {
     display: none;
 }
-.search-card {
+
+#error-message {
     display: flex;
-    gap: 0.75rem;
-}
-#search-form{
-    border: 2px solid black;
+    align-items: center;
+    gap: 8px;
+    background: #fee2e2;
+    color: #b91c1c;
+    padding: 10px;
     border-radius: 10px;
-    font-size: 1rem;
-    padding: 0.8rem 1.4rem;
-    flex: 1;
-    color: beige;
+    margin-bottom: 15px;
 }
-.input-word{
-    box-shadow: 0 0 0 3px rgb(3, 3, 3);
+
+#loader {
+    text-align: center;
+    padding: 10px;
+    color: var(--muted);
+}
+#result-section {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    margin-bottom: 20px;
+}
+
+.word-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+#word {
+    font-size: 28px;
+}
+
+#phonetic {
+    color: var(--muted);
+}
+
+#save-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid var(--border);
+    background: transparent;
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#save-btn.active {
+    background: var(--primary);
+    color: white;
+}
+.meaning {
+    margin-top: 20px;
+}
+
+.part-of-speech {
+    font-weight: bold;
+    color: var(--primary);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.card {
+    background: var(--card);
+    padding: 15px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+}
+
+.card-title {
+    margin-bottom: 10px;
+}
+
+.empty {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+audio {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.definition {
+    margin-bottom: 10px;
+}
+
+.example {
+    font-style: italic;
+    color: var(--muted);
+}
+.chip-group {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.chip {
+    padding: 6px 10px;
+    background: var(--border);
+    border-radius: 999px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .word-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #search-form {
+        flex-direction: column;
+    }
+
+    #search-form button {
+        width: 100%;
+    }
 }
